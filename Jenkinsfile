@@ -5,8 +5,14 @@
         // Install the Maven version configured as "M3" and add it to the path.
         maven "maven"
     }
+    
 
     stages {
+      
+       stage('Initialize'){
+        dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
