@@ -9,13 +9,12 @@
 
     stages {
       
-       stage('Initialize'){
-       def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+     
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
+              def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
                 git branch: 'master' , url: 'https://github.com/aarsh2211/docker_jenkins.git'
 
                 // Run Maven on a Unix agent.
