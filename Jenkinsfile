@@ -1,10 +1,11 @@
   pipeline {
-    agent any
+    agent {
+    dockerfile true
+    }
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
-        maven "maven",
-      docker "dockerHome"
+        maven "maven"
     }
     
 
